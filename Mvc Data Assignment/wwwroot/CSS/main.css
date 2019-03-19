@@ -1,12 +1,14 @@
 ﻿body {
-    background-color: gray;
+    background-color: darkslategray;
+    color: white;
 }
 
 table {
     border: outset 20px;
     margin-left: auto;
     margin-right: auto;
-
+    background-color: darkslategray;
+    color: white;
 }
 
 #test {
@@ -14,13 +16,19 @@ table {
     margin-right: auto;
 }
 
-#NoFilter {
+.NoFilter {
     float: right;
 }
 
-#line {
-    border: outset 1px;
+
+#button {
+    background-color: darkred;
+    padding: 5px;
+    margin: 1px;
+    border-radius: 5px;
+    color: white;
 }
+
 #AddPerson {
     float: left;
 }
@@ -44,4 +52,5 @@ footer {
     height: 50px;
     width: 100%;
     overflow: hidden;
+    color: black;
 }

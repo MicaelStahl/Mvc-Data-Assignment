@@ -13,15 +13,15 @@
     <input type="text" name="City" value="" placeholder="City" />
     <br /><br />
 
-    <button>Create</button>
+    <button id="button">Create</button>
     <br /><br /><br />
 </form>
 
 <form method="post" id="FilterList">
     <input type="text" name="filter" value="" placeholder="Filter by name or city" />
     <br /><br />
-    <input type="submit" name="filter" value="Filter"/>
-    <input type="submit" name="Name" value="No-Filter" id="NoFilter" />
+    <input type="submit" name="filter" value="Filter" id="button" />
+    <input type="submit" name="Name" value="No-Filter" class="NoFilter" id="button" />
     <br />
 </form>
 
@@ -46,8 +46,8 @@
                     <td>@item.City</td>
                     <td>
                         <form method="post">
-                            <input type="hidden" name="Id" value="@item.Id" />
-                            <input type="submit" name="Id" value="Remove" />
+                            <input type="hidden" name="Id" value="@item.Id" id="button" />
+                            <input type="submit" name="Id" value="Remove" id="button" />
                         </form>
                     </td>
                 </tr>
