@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Mvc_Data_Assignment.Models
 {
-    public class ListModel
+    public class Person
     {
         public int Id { get; set; }
         public string Name { get; set; }

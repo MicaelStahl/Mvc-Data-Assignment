@@ -15,13 +15,13 @@ namespace Mvc_Data_Assignment.Controllers
         public const string SessionKeyCity = "_City";
         public const string SessionKeyFilter = "_Filter";
 
-        IListModel _listModel;
+        IPerson _listModel;
 
-        public HomeController(IListModel listModel)
+        public HomeController(IPerson listModel)
         {
             _listModel = listModel;
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
             string filter = HttpContext.Session.GetString("_Filter");
@@ -34,7 +34,7 @@ namespace Mvc_Data_Assignment.Controllers
             return View(_listModel.AllPeople());
         }
         [HttpPost]
-        public IActionResult Index(string Name, int PhoneNumber, string City, string filter)
+        public IActionResult Index(string Name, int? PhoneNumber, string City, string filter, int? Id)
         {
             if (filter != null)
             {
@@ -42,10 +42,15 @@ namespace Mvc_Data_Assignment.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-            else
+            else if (Id != null)
+            {
+                return View(_listModel.RemovePerson((int)Id));
+            }
+
+            if (Name != null && PhoneNumber != null && City != null)
             {
                 HttpContext.Session.SetString("_Name", Name);
-                HttpContext.Session.SetInt32("_PhoneNumber", PhoneNumber);
+                HttpContext.Session.SetInt32("_PhoneNumber", (int)PhoneNumber);
                 HttpContext.Session.SetString("_City", City);
 
                 string name = HttpContext.Session.GetString("_Name");

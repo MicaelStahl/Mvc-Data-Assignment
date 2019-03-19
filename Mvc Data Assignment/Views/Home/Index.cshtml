@@ -1,4 +1,4 @@
-﻿@model List<ListModel>
+﻿@model List<Person>
 @{
     ViewBag.Title = "This is not a drill. Escape while you can!";
 }
@@ -7,26 +7,28 @@
 
 <form method="post" id="AddPerson">
     <input type="text" name="Name" value="" placeholder="Name" />
-    <br />
+    <br /><br />
     <input type="number" name="PhoneNumber" value="" placeholder="PhoneNumber" />
-    <br />
+    <br /><br />
     <input type="text" name="City" value="" placeholder="City" />
-    <br />
+    <br /><br />
+
     <button>Create</button>
-    <br />
+    <br /><br /><br />
 </form>
 
 <form method="post" id="FilterList">
     <input type="text" name="filter" value="" placeholder="Filter by name or city" />
+    <br /><br />
     <button>Filter</button>
 </form>
 
 <table>
+    <thead>
     @if (ViewBag.Filter != null)
     {
-    @ViewBag.Filter
+        @ViewBag.Filter
     }
-    <thead>
         <tr>
             <td>ID</td>
             <td>Name</td>
@@ -39,11 +41,17 @@
         {
             @foreach (var item in Model)
             {
-                <tr>
+                <tr id="line">
                     <td>@item.Id</td>
                     <td>@item.Name</td>
                     <td>@item.PhoneNumber</td>
                     <td>@item.City</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="Id" value="@item.Id" />
+                            <input type="submit" name="Id" value="Remove" />
+                        </form>
+                    </td>
                 </tr>
             }
         }

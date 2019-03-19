@@ -1,11 +1,21 @@
-﻿/*#AddPerson {
-    float: left;
-}*/
-body {
+﻿body {
     background-color: gray;
 }
+
 table {
     border: outset 20px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#line {
+    border: outset 1px;
+}
+
+#AddPerson {
+    border: solid outset 1px;
+}
+
+#FilterList {
+    border: solid outset 1px;
 }

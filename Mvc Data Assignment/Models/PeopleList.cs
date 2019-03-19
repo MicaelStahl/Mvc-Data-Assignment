@@ -5,75 +5,73 @@ using System.Threading.Tasks;
 
 namespace Mvc_Data_Assignment.Models
 {
-    public class PeopleList : IListModel
+    public class PeopleList : IPerson
     {
-        public List<ListModel> listModels = new List<ListModel>();
-        public List<ListModel> filteredList = new List<ListModel>();
+        public List<Person> personList = new List<Person>();
+        public List<Person> personFilter = new List<Person>();
 
         private int idCount = 1;
 
         public PeopleList()
         {
-            listModels.Add(new ListModel() { Id = 0, Name = "Test Testsson", PhoneNumber = 123456789, City = "test" });
+            personList.Add(new Person() { Id = 0, Name = "Test Testsson", PhoneNumber = 123456789, City = "test" });
         }
 
-        public List<ListModel> AllPeople()
+        public List<Person> AllPeople()
         {
-            return listModels;
+            return personList;
         }
         /// <summary>
         /// I'll work on this one later since I doubt this works.
         /// </summary>
-        public List<ListModel> FilterList(string filter)
+        public List<Person> FilterList(string filter)
         {
-            foreach (ListModel item in listModels)
+            foreach (Person item in personList)
             {
                 if (item.Name.Contains(filter))
                 {
-                    filteredList.Add(item);
+                    personFilter.Add(item);
                 }
                 else if (item.City.Contains(filter))
                 {
-                    filteredList.Add(item);
+                    personFilter.Add(item);
                 }
             }
-            return filteredList;
+            return personFilter;
         }
         /// <summary>
         /// Adds a new person to the list
         /// </summary>
-        public ListModel NewPerson(string name, int phoneNumber, string city)
+        public Person NewPerson(string name, int phoneNumber, string city)
         {
-            ListModel listModel = new ListModel() { Id = idCount, Name = name, PhoneNumber = phoneNumber, City = city };
+            Person listModel = new Person() { Id = idCount, Name = name, PhoneNumber = phoneNumber, City = city };
             idCount++;
-            listModels.Add(listModel);
+            personList.Add(listModel);
             return listModel;
         }
         /// <summary>
         /// Removes a person by id
         /// </summary>
-        public bool RemovePerson(int id)
+        public List<Person> RemovePerson(int id)
         {
-            bool removedPerson = false;
 
-            foreach (ListModel item in listModels)
+            foreach (Person item in personList)
             {
                 if (item.Id == id)
                 {
-                    listModels.Remove(item);
-                    removedPerson = true;
+                    personList.Remove(item);
                     break;
                 }
             }
-            return removedPerson;
+            return personList;
         }
         /// <summary>
         /// Sorts the list
         /// </summary>
-        public List<ListModel> SortList()
+        public List<Person> SortList()
         {
-            listModels.Sort();
-            return listModels;
+            personList.Sort();
+            return personList;
         }
     }
 }

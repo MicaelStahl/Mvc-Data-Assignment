@@ -5,21 +5,21 @@ using System.Threading.Tasks;
 
 namespace Mvc_Data_Assignment.Models
 {
-    public interface IListModel
+    public interface IPerson
     {
         // Create
-        ListModel NewPerson(string Name, int PhoneNumber, string City);
+        Person NewPerson(string Name, int PhoneNumber, string City);
 
         // Read All
-        List<ListModel> AllPeople();
+        List<Person> AllPeople();
 
         // Remove
-        bool RemovePerson(int id);
+        List<Person> RemovePerson(int id);
 
         // Update (sort)
-        List<ListModel> SortList();
+        List<Person> SortList();
 
         // Update (Filter)
-        List<ListModel> FilterList(string filter);
+        List<Person> FilterList(string filter);
     }
 }
