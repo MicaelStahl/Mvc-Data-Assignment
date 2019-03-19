@@ -6,16 +6,42 @@ table {
     border: outset 20px;
     margin-left: auto;
     margin-right: auto;
+
+}
+
+#test {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#NoFilter {
+    float: right;
 }
 
 #line {
     border: outset 1px;
 }
-
 #AddPerson {
-    border: solid outset 1px;
+    float: left;
 }
 
 #FilterList {
-    border: solid outset 1px;
+    clear: both;
+    float: left;
+}
+
+#AddPerson, #FilterList {
+    border: outset 1px;
+    padding: 5px;
+    width: 172px;
+}
+
+footer {
+    background-color: darkgray;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
 }

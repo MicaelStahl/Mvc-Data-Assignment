@@ -14,7 +14,7 @@ namespace Mvc_Data_Assignment.Models
 
         public PeopleList()
         {
-            personList.Add(new Person() { Id = 0, Name = "Test Testsson", PhoneNumber = 123456789, City = "test" });
+            personList.Add(new Person() { Id = 0, Name = "Misaka Mikoto", PhoneNumber = 123456789, City = "Academy City" });
         }
 
         public List<Person> AllPeople()
@@ -26,6 +26,8 @@ namespace Mvc_Data_Assignment.Models
         /// </summary>
         public List<Person> FilterList(string filter)
         {
+            personFilter.Clear();
+
             foreach (Person item in personList)
             {
                 if (item.Name.Contains(filter))
@@ -44,10 +46,10 @@ namespace Mvc_Data_Assignment.Models
         /// </summary>
         public Person NewPerson(string name, int phoneNumber, string city)
         {
-            Person listModel = new Person() { Id = idCount, Name = name, PhoneNumber = phoneNumber, City = city };
+            Person person = new Person() { Id = idCount, Name = name, PhoneNumber = phoneNumber, City = city };
             idCount++;
-            personList.Add(listModel);
-            return listModel;
+            personList.Add(person);
+            return person;
         }
         /// <summary>
         /// Removes a person by id

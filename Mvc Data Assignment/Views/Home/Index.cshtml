@@ -20,15 +20,13 @@
 <form method="post" id="FilterList">
     <input type="text" name="filter" value="" placeholder="Filter by name or city" />
     <br /><br />
-    <button>Filter</button>
+    <input type="submit" name="filter" value="Filter"/>
+    <input type="submit" name="Name" value="No-Filter" id="NoFilter" />
+    <br />
 </form>
 
 <table>
-    <thead>
-    @if (ViewBag.Filter != null)
-    {
-        @ViewBag.Filter
-    }
+    <thead id="test">
         <tr>
             <td>ID</td>
             <td>Name</td>
