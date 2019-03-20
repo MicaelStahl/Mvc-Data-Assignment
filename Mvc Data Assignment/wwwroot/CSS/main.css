@@ -10,6 +10,9 @@ table {
     background-color: darkslategray;
     color: white;
 }
+li {
+    float: left;
+}
 
 #test {
     margin-left: auto;
