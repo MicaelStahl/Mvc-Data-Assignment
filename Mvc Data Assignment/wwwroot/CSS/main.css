@@ -7,22 +7,28 @@ table {
     border: outset 20px;
     margin-left: auto;
     margin-right: auto;
-    background-color: darkslategray;
-    color: white;
-}
-li {
-    float: left;
 }
 
-#test {
+nav {
+    line-height: 1.5;
+    width: 50%;
+    border: outset 20px;
     margin-left: auto;
     margin-right: auto;
+    padding: 10px;
+}
+
+li {
+    clear: both;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    list-style: none;
 }
 
 .NoFilter {
     float: right;
 }
-
 
 #button {
     background-color: darkred;

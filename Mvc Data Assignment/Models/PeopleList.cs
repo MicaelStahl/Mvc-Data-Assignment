@@ -22,7 +22,7 @@ namespace Mvc_Data_Assignment.Models
             return personList;
         }
         /// <summary>
-        /// I'll work on this one later since I doubt this works.
+        /// This method filters the list as per the users wish.
         /// </summary>
         public List<Person> FilterList(string filter)
         {
@@ -68,7 +68,7 @@ namespace Mvc_Data_Assignment.Models
             return personList;
         }
         /// <summary>
-        /// Sorts the list
+        /// Sorts the list - Not using this method, might implement it later on.
         /// </summary>
         public List<Person> SortList()
         {

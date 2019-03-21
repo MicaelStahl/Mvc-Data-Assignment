@@ -1,0 +1,57 @@
+﻿@model List<Person>
+@{
+    ViewBag.Title = "This is not a drill. Escape while you can!";
+}
+
+<h1>Index</h1>
+
+<form method="post" id="AddPerson">
+    <input type="text" name="Name" value="" placeholder="Name" />
+    <br /><br />
+    <input type="number" name="PhoneNumber" value="" placeholder="PhoneNumber" />
+    <br /><br />
+    <input type="text" name="City" value="" placeholder="City" />
+    <br /><br />
+
+    <button id="button">Create</button>
+    <br /><br /><br />
+</form>
+
+<form method="post" id="FilterList">
+    <input type="text" name="filter" value="" placeholder="Filter by name or city" />
+    <br /><br />
+    <input type="submit" name="filter" value="Filter" id="button" />
+    <input type="submit" name="Name" value="No-Filter" class="NoFilter" id="button" />
+    <br />
+</form>
+
+<table>
+    <thead id="test">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>PhoneNumber</td>
+            <td>City</td>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr id="line">
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.City</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="Id" value="@item.Id" id="button" />
+                            <input type="submit" name="Id" value="Remove" id="button" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

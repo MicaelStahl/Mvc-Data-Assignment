@@ -45,7 +45,10 @@ namespace Mvc_Data_Assignment.Controllers
             {
                 return View(_person.RemovePerson((int)Id));
             }
-
+            if (Name == null || PhoneNumber == null || City == null)
+            {
+                return View();
+            }
             if (Name != null && PhoneNumber != null && City != null)
             {
                 HttpContext.Session.SetString("_Name", Name);
@@ -57,9 +60,16 @@ namespace Mvc_Data_Assignment.Controllers
                 string city = HttpContext.Session.GetString("_City");
 
                 _person.NewPerson(name, phoneNumber, city);
+                return View(_person.AllPeople());
             }
 
-            return View(_person.AllPeople());
+            return View();
+        }
+        public IActionResult PersonListPartial ()
+        {
+            
+
+            return PartialView(_person);
         }
     }
 }
