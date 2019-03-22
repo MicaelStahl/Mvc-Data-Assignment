@@ -10,6 +10,7 @@ namespace Mvc_Data_Assignment.Controllers
 {
     public class HomeController : Controller
     {
+
         public const string SessionKeyName = "_Name";
         public const string SessionKeyPhoneNumber = "_PhoneNumber";
         public const string SessionKeyCity = "_City";
@@ -21,6 +22,7 @@ namespace Mvc_Data_Assignment.Controllers
         {
             _person = person;
         }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -30,8 +32,10 @@ namespace Mvc_Data_Assignment.Controllers
             {
                 return View(_person.FilterList(filter));
             }
+
             return View(_person.AllPeople());
         }
+
         [HttpPost]
         public IActionResult Index(string Name, int? PhoneNumber, string City, string filter, int? Id)
         {
@@ -45,31 +49,31 @@ namespace Mvc_Data_Assignment.Controllers
             {
                 return View(_person.RemovePerson((int)Id));
             }
-            if (Name == null || PhoneNumber == null || City == null)
-            {
-                return View();
-            }
             if (Name != null && PhoneNumber != null && City != null)
             {
-                HttpContext.Session.SetString("_Name", Name);
+                /*HttpContext.Session.SetString("_Name", Name);
                 HttpContext.Session.SetInt32("_PhoneNumber", (int)PhoneNumber);
                 HttpContext.Session.SetString("_City", City);
 
                 string name = HttpContext.Session.GetString("_Name");
                 int phoneNumber = (int)HttpContext.Session.GetInt32("_PhoneNumber");
                 string city = HttpContext.Session.GetString("_City");
+                */
 
-                _person.NewPerson(name, phoneNumber, city);
+                _person.NewPerson(Name, (int)PhoneNumber, City);
+                Person person = new Person();
                 return View(_person.AllPeople());
+                //return PartialView("_Person", person);
             }
 
             return View();
         }
-        public IActionResult PersonListPartial ()
-        {
-            
 
-            return PartialView(_person);
+        public IActionResult PersonListPartial()
+        {
+            Person person = new Person();
+
+            return PartialView("_Person", person);
         }
     }
 }

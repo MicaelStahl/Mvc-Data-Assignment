@@ -14,7 +14,7 @@ namespace Mvc_Data_Assignment.Models
 
         public PeopleList()
         {
-            personList.Add(new Person() { Id = 0, Name = "Misaka Mikoto", PhoneNumber = 123456789, City = "Academy City" });
+            personList.Add(new Person() { Id = 0, Name = "Test Testsson", PhoneNumber = 123456789, City = "Academy City" });
         }
 
         public List<Person> AllPeople()

@@ -1,29 +1,31 @@
 ﻿body {
     background-color: darkslategray;
     color: white;
+    margin-left: 100px;
 }
 
-table {
-    border: outset 20px;
+ol {
     margin-left: auto;
     margin-right: auto;
 }
 
-nav {
+.main-li {
     line-height: 1.5;
-    width: 50%;
-    border: outset 20px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
-}
-
-li {
+    text-align: justify;
+    min-width: 400px;
     clear: both;
     float: left;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 10px;
+    border: groove 1px gray;
     list-style: none;
+}
+
+#FormDelete {
+    float: right;
+}
+
+.removeButton {
+    margin: 0;
 }
 
 .NoFilter {
@@ -45,6 +47,7 @@ li {
 #FilterList {
     clear: both;
     float: left;
+    margin-bottom: 10px;
 }
 
 #AddPerson, #FilterList {

@@ -1,4 +1,8 @@
-﻿<h1>Index</h1>
+﻿@using Mvc_Data_Assignment.Models
+
+@model List<Person>
+
+<h1>Index</h1>
 
 <form method="post" id="AddPerson">
     <input type="text" name="Name" value="" placeholder="Name" />
@@ -19,8 +23,11 @@
     <input type="submit" name="Name" value="No-Filter" class="NoFilter" id="button" />
     <br />
 </form>
-
-
-<div>
-    @Html.PartialAsync("PersonListPartial")
+<div class="borderControl">
+    <ol>
+        @foreach (Person item in Model)
+        {
+            @await Html.PartialAsync("_Person", item)
+        }
+    </ol>
 </div>

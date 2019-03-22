@@ -1,0 +1,13 @@
+﻿@model Person
+
+
+<li class="main-li">
+    @Model.Id | 
+    @Model.Name | 
+    @Model.PhoneNumber |
+    @Model.City |
+    <form method="post" id="FormDelete">
+        <input type="hidden" name="Id" value="@Model.Id" id="button" class="removeButton" />
+        <input type="submit" name="Id" value="Remove" id="button" class="removeButton" />
+    </form>
+</li>
