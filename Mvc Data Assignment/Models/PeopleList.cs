@@ -11,12 +11,17 @@ namespace Mvc_Data_Assignment.Models
         public List<Person> personFilter = new List<Person>();
 
         private int idCount = 1;
-
+        /// <summary>
+        /// This adds a constant member to the list to have something to show on the website from start.
+        /// </summary>
         public PeopleList()
         {
             personList.Add(new Person() { Id = 0, Name = "Test Testsson", PhoneNumber = 123456789, City = "Academy City" });
         }
-
+        /// <summary>
+        /// Return a list of all people.
+        /// </summary>
+        /// <returns></returns>
         public List<Person> AllPeople()
         {
             return personList;

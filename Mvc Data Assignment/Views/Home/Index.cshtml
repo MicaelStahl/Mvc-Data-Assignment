@@ -16,14 +16,14 @@
     <br /><br /><br />
 </form>
 
-<form method="post" id="FilterList">
+<form method="post" asp-action="Filter" id="FilterList">
     <input type="text" name="filter" value="" placeholder="Filter by name or city" />
     <br /><br />
     <input type="submit" name="filter" value="Filter" id="button" />
     <input type="submit" name="Name" value="No-Filter" class="NoFilter" id="button" />
     <br />
 </form>
-<div class="borderControl">
+<div>
     <ol>
         @foreach (Person item in Model)
         {

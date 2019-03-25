@@ -6,8 +6,8 @@
     @Model.Name | 
     @Model.PhoneNumber |
     @Model.City |
-    <form method="post" id="FormDelete">
+    <a asp-route-id="@Model.Id" asp-action="Delete" class="aDelete">
         <input type="hidden" name="Id" value="@Model.Id" id="button" class="removeButton" />
         <input type="submit" name="Id" value="Remove" id="button" class="removeButton" />
-    </form>
+    </a>
 </li>

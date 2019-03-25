@@ -10,7 +10,6 @@ namespace Mvc_Data_Assignment.Controllers
 {
     public class HomeController : Controller
     {
-
         public const string SessionKeyName = "_Name";
         public const string SessionKeyPhoneNumber = "_PhoneNumber";
         public const string SessionKeyCity = "_City";
@@ -30,43 +29,39 @@ namespace Mvc_Data_Assignment.Controllers
 
             if (filter != null)
             {
+                HttpContext.Session.Remove("_Filter");
+
                 return View(_person.FilterList(filter));
             }
-
             return View(_person.AllPeople());
         }
 
         [HttpPost]
-        public IActionResult Index(string Name, int? PhoneNumber, string City, string filter, int? Id)
+        public IActionResult Index(string Name, int? PhoneNumber, string City)
+        {
+            if (Name != null && PhoneNumber != null && City != null)
+            {
+                _person.NewPerson(Name, (int)PhoneNumber, City);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Delete(int? Id)
+        {
+            if (Id != null)
+            {
+                _person.RemovePerson((int)Id);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Filter(string filter)
         {
             if (filter != null)
             {
                 HttpContext.Session.SetString("_Filter", filter);
-
-                return RedirectToAction("Index", "Home");
             }
-            else if (Id != null)
-            {
-                return View(_person.RemovePerson((int)Id));
-            }
-            if (Name != null && PhoneNumber != null && City != null)
-            {
-                /*HttpContext.Session.SetString("_Name", Name);
-                HttpContext.Session.SetInt32("_PhoneNumber", (int)PhoneNumber);
-                HttpContext.Session.SetString("_City", City);
-
-                string name = HttpContext.Session.GetString("_Name");
-                int phoneNumber = (int)HttpContext.Session.GetInt32("_PhoneNumber");
-                string city = HttpContext.Session.GetString("_City");
-                */
-
-                _person.NewPerson(Name, (int)PhoneNumber, City);
-                Person person = new Person();
-                return View(_person.AllPeople());
-                //return PartialView("_Person", person);
-            }
-
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult PersonListPartial()

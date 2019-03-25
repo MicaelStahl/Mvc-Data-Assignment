@@ -20,7 +20,7 @@ ol {
     list-style: none;
 }
 
-#FormDelete {
+.aDelete {
     float: right;
 }
 
